@@ -1,6 +1,9 @@
 package ee.mihkel.rendipood.Entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,15 +15,11 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-public class Film {
+public class Rental {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String name;
-    private FilmType type;
-    private int daysRented;
+    private double initialFee;
+    private double lateFee;
 
-    @ManyToOne
-    private Rental rental;
 }
-
